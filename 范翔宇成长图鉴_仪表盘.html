@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>范翔宇成长图鉴 | 技能仪表盘</title>
+    <style>
+        :root {
+            --primary-color: #FFD700; /* 皮卡丘黄 */
+            --secondary-color: #FF6B6B; /* 木棉红 */
+            --bg-color: #f0f2f5;
+            --card-bg: #ffffff;
+            --text-main: #2c3e50;
+            --text-sub: #7f8c8d;
+            --tag-bg: #e8f5e9;
+            --tag-text: #2e7d32;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-info h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .header-info p {
+            margin: 10px 0 0;
+            opacity: 0.9;
+        }
+
+        .stats-bar {
+            display: flex;
+            gap: 20px;
+        }
+
+        .stat-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px 25px;
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #ecf0f1;
+        }
+
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+        }
+
+        /* Section Cards */
+        .section-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            border-top: 5px solid transparent;
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .section-icon {
+            font-size: 1.8em;
+            margin-right: 15px;
+        }
+
+        .section-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: var(--text-main);
+        }
+
+        /* Skill Items */
+        .skill-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #ddd;
+        }
+
+        .skill-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .skill-desc {
+            font-size: 0.95em;
+            color: var(--text-sub);
+            margin-bottom: 10px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            font-size: 0.85em;
+            padding: 3px 10px;
+            border-radius: 15px;
+            background: #e1f5fe;
+            color: #0288d1;
+        }
+
+        /* Specific Card Styles */
+        .card-hard { border-top-color: #3498db; }
+        .card-hard .skill-item { border-left-color: #3498db; }
+        
+        .card-soft { border-top-color: #9b59b6; }
+        .card-soft .skill-item { border-left-color: #9b59b6; }
+
+        .card-cross { border-top-color: #e67e22; }
+        .card-cross .skill-item { border-left-color: #e67e22; }
+
+        .card-ai { border-top-color: #2ecc71; }
+        .card-ai .skill-item { border-left-color: #2ecc71; }
+
+        .card-growth { border-top-color: #FFD700; grid-row: span 2; }
+        .card-growth .skill-item { border-left-color: #FFD700; }
+
+        .card-risk { border-top-color: #e74c3c; }
+        .card-risk .skill-item { border-left-color: #e74c3c; }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-info">
+            <h1>范翔宇的成长仪表盘</h1>
+            <p>🚀 项目：木棉课堂社会实践 | 📍 地点：江西·茶乡社区 | 🆔 角色：皮卡丘老师</p>
+        </div>
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-number">6</span>
+                <span class="stat-label">能力维度</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">15+</span>
+                <span class="stat-label">核心技能点</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">Day 2</span>
+                <span class="stat-label">当前进度</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Grid -->
+    <div class="dashboard-grid">
+        
+        <!-- 1. 硬技能 -->
+        <div class="section-card card-hard">
+            <div class="section-header">
+                <span class="section-icon">🛠️</span>
+                <span class="section-title">硬技能 (Hard Skills)</span>
+            </div>
+            <div class="skill-item">
+                <div class="skill-title">📺 投屏技术专家</div>
+                <div class="skill-desc">精通AirPlay/Win+K/Android TV投屏，应对各种教室路演环境。</div>
+                <div class="skill-tags"><span class="tag">硬件连接</span><span class="tag">应急处理</span></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-title">🎤 演讲者视图</div>
+                <div class="skill-desc">驾驭PPT双屏模式，实现纯净大屏+备注小屏，眼神控场。</div>
+                <div class="skill-tags"><span class="tag">PPT演示</span><span class="tag">专业呈现</span></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-title">📸 视觉化叙事</div>
+                <div class="skill-desc">IP打造(皮卡丘)、电影级分镜设计、极简留白排版。</div>
+                <div class="skill-tags"><span class="tag">设计审美</span><span class="tag">故事力</span></div>
+            </div>
+        </div>
+
+        <!-- 2. 软技能 -->
+        <div class="section-card card-soft">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <span class="section-title">软技能 (Soft Skills)</span>
+            </div>
+            <div class="skill-item">
+                <div class="skill-title">🎭 角色塑造与切换</div>
+                <div class="skill-desc">皮卡丘老师(活泼) vs 翔宇哥哥(深情)，灵活切换社交面具。</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-title">👁️ 场控与洞察</div>
+                <div class="skill-desc">空间换效率(室外分组)，分层互动(差异化引导)。</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-title">🧩 系统化思维</div>
+                <div class="skill-desc">L0-L2文件夹架构，SOP化宣传工作流。</div>
+            </div>
+        </div>
+
+        <!-- 3. 跨领域迁移 -->
+        <div class="section-card card-cross">
+            <div class="section-header">
+                <span class="section-icon">🌐</span>
+                <span class="section-title">跨领域迁移 (Transferable)</span>
+            </div>
+            <div class="skill-item">
+                <div class="skill-title">🎬 分镜与工程化思维</div>
+                <div class="skill-desc">将大任务拆解为逐字稿/分镜。迁移：纪录片、Vlog脚本、调研。</div>
+                <div class="skill-tags"><span class="tag">任务拆解</span><span class="tag">产品思维</span></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-title">📰 公众号高阶排版</div>
+                <div class="skill-desc">从Markdown进阶到秀米富媒体排版，提升用户体验。</div>
+            </div>
+        </div>
+
+        <!-- 5. 个人成长 (占两行) -->
+        <div class="section-card card-growth">
+            <div class="section-header">
+                <span class="section-icon">🌱</span>
+                <span class="section-title">个人成长与感悟 (Growth)</span>
+            </div>
+            <div class="skill-item">
+                <div class="skill-title">💰 游学思维 (ROI)</div>
+                <div class="skill-desc">3000元学费 = 企业级见习。洞察优秀团队(执行力/凝聚力/SOP)的隐性知识。</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-title">🔄 转念的力量</div>
+                <div class="skill-desc">拥抱真实的不确定性。延误=打磨精品的馈赠。</div>
+            </div>
+             <div class="skill-item">
+                <div class="skill-title">🔥 团队凝聚力工坊</div>
+                <div class="skill-desc">盲盒火锅局：拼手气红包定预算，游戏化团建。</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-title">🚀 准备的力量</div>
+                <div class="skill-desc">精心打磨 vs 临时抱佛脚，机会留给有准备的人。</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-title">❤️ 爱的传递</div>
+                <div class="skill-desc">教育的本质是一棵树摇动另一棵树。</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-title">🏞️ 行走的力量</div>
+                <div class="skill-desc">读万卷书，行万里路。体验比书本更有力量。</div>
+            </div>
+        </div>
+
+        <!-- 4. AI效能 -->
+        <div class="section-card card-ai">
+            <div class="section-header">
+                <span class="section-icon">🤖</span>
+                <span class="section-title">AI协同 (AI & Efficiency)</span>
+            </div>
+            <div class="skill-item">
+                <div class="skill-title">🎙️ 声音流笔记法</div>
+                <div class="skill-desc">Get录音卡+AI转写。灵感捕获、活动归档、旅行打点。</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-title">⚡ 80分初稿思维</div>
+                <div class="skill-desc">外包记忆与整理给AI，大脑只做核心思考与润色。</div>
+            </div>
+        </div>
+
+        <!-- 6. 风险管理 -->
+        <div class="section-card card-risk">
+            <div class="section-header">
+                <span class="section-icon">🛡️</span>
+                <span class="section-title">风控与管理 (Management)</span>
+            </div>
+            <div class="skill-item">
+                <div class="skill-title">💰 财务透明</div>
+                <div class="skill-desc">餐桌结算原则(即时AA)，设立财务官统筹大额支出。</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-title">👫 边界与关怀</div>
+                <div class="skill-desc">队长思维：预判尴尬，主动避嫌，保护成员心理舒适区。</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
