@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>范翔宇的旅行生存清单 | Travel Kit</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --accent-color: #f1c40f;
+            --text-color: #2c3e50;
+            --bg-color: #f4f6f7;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #2980b9, #6dd5fa);
+            border-radius: 15px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .header h1 { margin: 0; font-size: 2.2em; }
+        .header p { margin-top: 10px; opacity: 0.9; font-size: 1.1em; }
+
+        .checklist-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .checklist-card h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .icon { margin-right: 10px; font-size: 1.2em; }
+
+        .item-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .item {
+            display: flex;
+            align-items: flex-start;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .item:last-child { border-bottom: none; }
+
+        .checkbox {
+            min-width: 20px;
+            height: 20px;
+            border: 2px solid #bdc3c7;
+            border-radius: 4px;
+            margin-right: 15px;
+            margin-top: 3px;
+            position: relative;
+        }
+
+        .checkbox::after {
+            content: '✓';
+            position: absolute;
+            top: -5px;
+            left: 2px;
+            color: var(--primary-color);
+            font-weight: bold;
+            display: none;
+        }
+
+        .item:hover .checkbox { border-color: var(--primary-color); }
+
+        .item-content { flex: 1; }
+        .item-title { font-weight: bold; display: block; margin-bottom: 4px; }
+        .item-desc { font-size: 0.9em; color: #7f8c8d; }
+
+        .tip-box {
+            background: #fff9c4;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.95em;
+            color: #795548;
+            margin-top: 10px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            border: 1px solid #ccc;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            background: var(--text-color);
+            color: white;
+            border-color: var(--text-color);
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header class="header">
+        <h1>🎒 范翔宇的旅行生存清单</h1>
+        <p>The Travel Survival Kit | 持续迭代中 v1.0</p>
+    </header>
+
+    <div class="checklist-card">
+        <h2><span class="icon">🚿</span>卫生黑客 (Hygiene)</h2>
+        <ul class="item-list">
+            <li class="item">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <span class="item-title">一次性洗脸巾</span>
+                    <span class="item-desc">告别湿漉漉的毛巾，防霉防菌，用完即扔。</span>
+                </div>
+            </li>
+            <li class="item">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <span class="item-title">日抛内裤 & 袜子</span>
+                    <span class="item-desc">支教/出差神器。把洗晒的时间省下来睡觉或备课。</span>
+                </div>
+            </li>
+            <li class="item">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <span class="item-title">自带拖鞋</span>
+                    <span class="item-desc">拒绝公用拖鞋，预防脚气，洗澡更安心。</span>
+                </div>
+            </li>
+        </ul>
+        <div class="tip-box">💡 <strong>心得</strong>：在条件有限的宿舍，"一次性"不是浪费，而是对健康的投资。</div>
+    </div>
+
+    <div class="checklist-card">
+        <h2><span class="icon">🛌</span>睡眠结界 (Sleep)</h2>
+        <ul class="item-list">
+            <li class="item">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <span class="item-title">遮光眼罩</span>
+                    <span class="item-desc">针对舍友晚睡/早起开灯的情况，强制物理天黑。</span>
+                </div>
+            </li>
+            <li class="item">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <span class="item-title">强效耳塞</span>
+                    <span class="item-desc">屏蔽呼噜声、交谈声、走廊脚步声。</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="checklist-card">
+        <h2><span class="icon">📝</span>待办更新 (To-Do)</h2>
+        <ul class="item-list">
+            <li class="item">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <span class="item-title">收纳模块</span>
+                    <span class="item-desc">待补充：压缩袋、分装瓶的使用心得。</span>
+                </div>
+            </li>
+            <li class="item">
+                <div class="checkbox"></div>
+                <div class="item-content">
+                    <span class="item-title">电子设备</span>
+                    <span class="item-desc">待补充：排插、充电宝、多口充电器的选择。</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div style="text-align: center;">
+        <a href="index.html" class="back-btn">← 返回成长仪表盘</a>
+    </div>
+</div>
+
+</body>
+</html>
